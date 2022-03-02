@@ -16,6 +16,7 @@ const showSearched = (mobiles) => {
     const searchedMobile = document.getElementById('searched-mobile');
     searchedMobile.textContent = ''
     // console.log(mobiles);
+
     mobiles.forEach(mobile => {
         console.log(mobile)
         const div = document.createElement('div')
@@ -35,13 +36,14 @@ const showSearched = (mobiles) => {
         `
         searchedMobile.appendChild(div)
     })
+    // const first20mobile = mobiles.slice(0,20)
 }
 
 
 const phoneDetail = mobileDetail => {
-    console.log()
+    // console.log(mobileDetail)
     const url = `https://openapi.programming-hero.com/api/phone/${mobileDetail}`
     fetch(url)
-    .then(res => res.json())
-    .then(data => console.log(data))
+        .then(res => res.json())
+        .then(data => console.log(data.data))
 }
