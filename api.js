@@ -14,7 +14,7 @@ const searchButton = () => {
 // -------------show searched phone-----------
 const showSearched = (mobiles) => {
     const searchedMobile = document.getElementById('searched-mobile');
-    searchedMobile.textContent= ''
+    searchedMobile.textContent = ''
     // console.log(mobiles);
     mobiles.forEach(mobile => {
         console.log(mobile)
@@ -28,7 +28,7 @@ const showSearched = (mobiles) => {
                 <p>Name: <span class="text-primary"> ${mobile.phone_name} </span></p>
                     <h5 class="card-title">Brand: ${mobile.brand}</h5>
                     <p class="card-text">Release date: </p>
-                    <button onclick="phoneDetail()" class="image text-danger"> Detail</button>
+                    <button onclick="phoneDetail('${mobile}')" class="image text-danger"> Detail</button>
                 </div>
             </div>
         </div>
@@ -38,8 +38,9 @@ const showSearched = (mobiles) => {
 }
 
 
-const phoneDetail = mailId =>{
-    const url = `https://openapi.programming-hero.com/api/phone/${mailId}`
+const phoneDetail = mobileDetail => {
+    console.log()
+    const url = `https://openapi.programming-hero.com/api/phone/${mobileDetail}`
     fetch(url)
     .then(res => res.json())
     .then(data => console.log(data))
